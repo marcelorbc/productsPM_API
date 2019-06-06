@@ -8,7 +8,7 @@ const logger = require('./interface_adapters/logger');
 // Start the server
 const start = async () => {
 
-  try {
+  try { //teste bueno
 
     await sequelize.sync();
     logger().info('Connection to DB has been established successfully.');
