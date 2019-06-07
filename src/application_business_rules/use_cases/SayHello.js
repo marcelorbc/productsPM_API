@@ -8,7 +8,7 @@ module.exports = class SayHello {
   }
   
   async execute() {
-    this.logger.debug("say hello to log");
-    return `Hello ${this.context.parsedData.name}!`;
+    const world = this.context.parsedData.name || 'world';
+    return `Hello ${world}!`;
   }
 };

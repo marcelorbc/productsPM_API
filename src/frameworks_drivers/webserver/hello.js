@@ -1,34 +1,16 @@
 'use strict';
 
 const HelloController = require('../../interface_adapters/controllers/hello/HelloController');
-const logger = require('../../interface_adapters/logger');
+const builRoute = require('./helpers/buildRoute');
 
 module.exports = {
   name: 'hello',
   version: '1.0.0',
   register: async (server) => {
-    server.route([
-      {
-        method: 'GET',
-        path: '/hello',
-        handler: () =>{
-          logger.debug("Bueno 2");
-          return HelloController.sayHelloWorld();
-        },
-        options: {
-          description: 'Return "Hello world!"',
-          tags: ['api'],
-        },
-      },
-      {
-        method: 'GET',
-        path: '/hello/{name}',
-        handler: HelloController.sayHelloPerson,
-        options: {
-          description: 'Return "Hello {name}!"',
-          tags: ['api'],
-        },
-      }
-    ]);
+    server.route(
+      [
+        builRoute('GET', '/hello', HelloController.sayHelloWorld, 'Return Hello World', ['Hello', 'World']),
+        builRoute('GET', '/hello', HelloController.sayHelloPerson, 'Return Hello Tperson', ['Hello', 'World'])
+      ])
   }
 };
