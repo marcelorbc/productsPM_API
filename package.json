@@ -30,7 +30,7 @@
     "hapi-swagger": "^9.4.2",
     "jsonwebtoken": "^8.3.0",
     "require-directory": "^2.1.1",
-    "sequelize": "^5.8.5",
+    "sequelize": "^5.15.1",
     "stack-trace": "0.0.10",
     "winston": "^3.2.1"
   },
